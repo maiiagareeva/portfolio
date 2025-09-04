@@ -1,0 +1,342 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--index: calc(1vw + 1vh);
+	--swiper-theme-color: #bebebe;
+	--swiper-navigation-size: 30px;
+	--swiper-navigation-sides-offset: 50px;
+	--swiper-pagination-bottom: 100px;
+	--swiper-pagination-color: #dddddd;
+	--swiper-pagination-bullet-inactive-color: #5f5f5f;
+	--swiper-pagination-bullet-inactive-opacity: 1;
+	--gutter: 30px;
+	--side-small: 26;
+	--side-big: 36;
+	--depth: 4000px;
+	--transition: .75s cubic-bezier(.075, .5, 0, 1)
+}
+
+body {
+	background-color: black;
+	color: white;
+	font-family : 'Proxima Nova', sans-serif;
+	scrollbar-width: none;
+}
+
+body::-webkit-scrollbar { 
+	display: none; /* Safari and Chrome */
+}
+
+.photo_container {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	perspective: 1500px;
+}
+.gallery {
+	transform-style: preserve-3d;
+	height: 100%;
+}
+.frame {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: var(--transition), opacity .75s ease;
+	will-change: transform;
+	transform-style: preserve-3d;
+}
+
+.frame h2 {
+	text-align: center;
+	font-size: calc(var(--index) * 3.3);
+	color: #bbbec9;
+	padding: 16px;
+	font-family : 'Proxima Nova', sans-serif;
+	font-weight: 100;
+}
+
+frame-media {
+	position: relative;
+	width: calc(var(--index) * var(--side-small));
+	height: calc(var(--index) * var(--side-big));
+	background-position: center;
+	background-size: cover;
+}
+.frame-media_left {
+	right: calc(var(--side-small) / 2 * var(--index) + var(--gutter));
+}
+.frame-media_right {
+	left: calc(var(--side-small) / 2 * var(--index) + var(--gutter));
+}
+.frame_bg {
+	background-color: rgb(0 0 0 / .87);
+}
+
+.text-right > * {
+	position: relative;
+	left: 18vw;
+}
+.text-left > * {
+	position: relative;
+	right: 18vw;
+}
+.frame h3 {
+	font-size: calc(var(--index) * 3);
+}
+.frame p {
+	max-width: 30vw;
+	margin-top: 3vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.background-image {
+	position: fixed;
+	/* transform: ; - поставить что-то на задний фон! постановка в html и плюс трансформ */
+}
+
+.background-image img {
+	width: 100%;
+	height: auto;
+	opacity: .7;
+}
+
+.slider {
+	height: 100vh;
+}
+
+.slider .slide {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+.slide_content {
+	text-align: center;
+}
+
+.slide_content h3 {
+	font-weight: 800;
+	font-size: calc(var(--index) * 4);
+	text-transform: uppercase;
+	letter-spacing: calc(var(--index)*0.3);
+	margin-bottom: calc(var(--index) * 2.5);
+	position: relative;
+	color: rgb(254 95 47);
+	z-index: 3;
+}
+
+.slide_content h6 {
+	font-weight: 200;
+	font-size: calc(var(--index) * 2.5);
+	text-transform: uppercase;
+	letter-spacing: calc(var(--index)*0.3);
+	margin-bottom: calc(var(--index) * 2.5);
+	position: relative;
+	transform: translate(246.5%, -110%);
+	color: rgb(254 95 47);
+}
+
+button::after {
+	content: '';
+	height: 1px;
+	width: 280px;
+	background-color: rgb(255 255 255 / .7);
+	position: absolute;
+	bottom: calc(var(--index) * -1);
+	transform: translate(-190px, -170px);
+	z-index: 1;
+}
+
+.slide_content p {
+	font-size: calc(var(--index) * 0.7);
+	text-transform: uppercase;
+	color: rgb(255 255 255 / .7);
+	letter-spacing: calc(var(--index)*.2);
+	margin-bottom: calc(var(--index) * 1.3);
+	transform: translate(0%, 130%);
+	z-index: 2;
+}
+
+
+.arrow {
+	width: 50px;
+	height: 50px;
+	transform: translate(170%, -166%);
+}
+
+.arrow img{
+	width: 159px;
+	height: auto;
+	filter: invert(46%) sepia(88%) saturate(2369%) hue-rotate(341deg) brightness(103%) contrast(103%);
+	cursor: pointer;
+}
+
+.arrow_photo {
+	width: 50px;
+	height: 50px;
+	transform: translate(70%, -166%);
+}
+
+.arrow_photo img{
+	width: 159px;
+	height: auto;
+	filter: invert(46%) sepia(88%) saturate(2369%) hue-rotate(341deg) brightness(103%) contrast(103%);
+	cursor: pointer;
+}
+
+button {
+	--button-color: rgb(255 255 255/ .9);
+	padding: 8px 30px;
+	font-size: 10px;
+	border-radius: 1em;
+	background-color: transparent;
+	border: 2px solid var(--button-color);
+	color: var(--button-color);
+	text-transform: uppercase;
+	letter-spacing: .2rem;
+	transform: translate(0, 140%);
+	cursor: pointer;
+	z-index: 4;
+}
+
+.slider-navigation > * {
+	border: 1px solid var(--swiper-theme-color);
+	border-radius: 5em;
+	width: 50px;
+	height: 50px;
+}
+
+.slider-pagination {
+	display: flex;
+	justify-content: center;
+}
+
+.swiper-pagination {
+	padding: 5px;
+	box-shadow: 0 0 0 1px rgb(255 255 255 / .6);
+	border-radius: 10em;
+	box-sizing: border-box;
+	width: 1%;
+	margin-left: 0;
+	margin-bottom: -3%;
+}
+
+.container {
+	margin: auto;
+	max-width: 840px;
+}
+.container-top {
+	display: flex;
+	justify-content: space-between;
+}
+
+.bottom-line {
+	position:absolute;
+	left:3%;
+	bottom:0;
+	margin-bottom: 12px;
+	font-family : 'Proxima Nova', sans-serif;
+	font-weight: 200;
+	opacity: .7;
+}
+
+
+.top-line {
+	position: absolute;
+	width: 100%;
+	z-index: 10;
+	padding: 1.7rem 0;
+}
+.logo {
+	border-radius: 10em;
+	width: 54px;
+	height: 54px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: translate(-460%, 0);
+}
+
+.logo img{
+	width: 70px;
+	height: auto;
+	border-radius: 10em;
+	opacity: .6;
+}
+
+.main-mnu {
+	display: flex;
+	margin-top: 12px;
+	font-size: 19px;
+	transform: translate(70%, 0);
+}
+
+.main-mnu li {
+	list-style: none;
+}
+
+.main-mnu a {
+	color: #bbbec9;
+	padding: 16px;
+	font-family : 'Proxima Nova', sans-serif;
+	text-decoration: none;
+	font-weight: 200;
+	outline: none;
+}
+.main-mnu a:hover {
+	text-decoration: underline;
+}
+
+.back_img {
+	position: fixed;
+	/* transform: translate(-80%, 12%); */
+	/* transform: ; - поставить что-то на задний фон! постановка в html и плюс трансформ */
+}
+
+.back_img img {
+	width: calc(var(--index) * 21);
+	height: auto;
+	filter: grayscale(100%);
+}
+
+.nickname {
+	margin-top: 15px;
+	font-size: 15px;
+	transform: translate(-80%, 0);
+}
+
+.nickname a {
+	color: #bbbec9;
+	padding: 16px;
+	font-family : 'Proxima Nova', sans-serif;
+	text-decoration: none;
+	font-weight: 200;
+	outline: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}

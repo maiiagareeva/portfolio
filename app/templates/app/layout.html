@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>{% block title %}{% endblock %}</title>
+
+	<script src="{% static 'app/libs/swiper/swiper-bundle.min.js' %}" defer></script>
+	<link rel="stylesheet" href="{% static 'app/libs/swiper/swiper-bundle.min.css' %}">
+	<link rel="stylesheet" href="{% static 'app/css/main.css' %}">
+	<script src="{% static 'app/js/app.js' %}" defer></script>
+
+</head>
+<body>
+	<div class="background-image">
+		<img src="{% static 'app/img/IMG_7887.jpg' %}" alt="Alt">
+	</div>
+	<div class="top-line">
+		<div class="container container-top">
+			<div>
+				<div class="logo">
+					<img src="{% static 'app/img/logo.jpg' %}" alt="Alt">
+				</div>
+			</div>
+			<div>
+				<div class="nickname">
+					<a>maiia</a><a>gareeva</a><a>beeinboots</a>
+				</div>
+			</div>
+			<div>
+				<ul class="main-mnu">
+					<li><a href="{% url 'home' %}">Home</a></li>
+					<li><a href="{% url 'about' %}">About</a></li>
+					<li><a href="{% url 'education' %}">Resume</a></li>
+					<li><a href="{% url 'contact' %}">Contacts</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="bottom-line">
+		<p>© 2024 BeeInBoots [Nikon Z30]</p>
+	</div>
+	<!-- шаблонизатор jinja -->
+	{% block main_body %}
+	{% endblock %}
+</body>
+</html>
