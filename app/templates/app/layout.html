@@ -34,14 +34,17 @@
 				<ul class="main-mnu">
 					<li><a href="{% url 'home' %}">Home</a></li>
 					<li><a href="{% url 'about' %}">About</a></li>
-					<li><a href="{% url 'education' %}">Resume</a></li>
-					<li><a href="{% url 'contact' %}">Contacts</a></li>
+					<!-- <li><a href="{% url 'contact' %}">Contacts</a></li> -->
+					<li class="cv-menu">
+						<a href="{% static 'app/img/MG_CV_9.15.25.pdf' %}" target="_blank" class="cv-link">PDF Resume</a>
+						<a href="{% static 'app/img/MG_CV_9.15.25.pdf' %}" download class="cv-download"><img src="{% static 'app/img/download_icon.svg' %}" alt="Download Resume" class="download-icon"></a>
+					</li>
 				</ul>
 			</div>
 		</div>
 	</div>
 	<div class="bottom-line">
-		<p>© 2024 BeeInBoots [Nikon Z30]</p>
+		<p>© 2025 BeeInBoots [Nikon Z30]</p>
 	</div>
 	<!-- шаблонизатор jinja -->
 	{% block main_body %}
