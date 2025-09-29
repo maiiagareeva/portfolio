@@ -11,8 +11,6 @@
 	--swiper-navigation-sides-offset: 50px;
 	--swiper-pagination-bottom: 100px;
 	--swiper-pagination-color: #dddddd;
-	--swiper-pagination-bullet-inactive-color: #5f5f5f;
-	--swiper-pagination-bullet-inactive-opacity: 1;
 	--gutter: 30px;
 	--side-small: 26;
 	--side-big: 36;
@@ -25,11 +23,19 @@ body {
 	color: white;
 	font-family : 'Proxima Nova', sans-serif;
 	scrollbar-width: none;
+	/* height: 100%; */
+	overflow-x: hidden;
+	overflow-y: auto;
+	/* padding-bottom: 5vh; */
 }
 
 body::-webkit-scrollbar { 
 	display: none; /* Safari and Chrome */
 }
+
+/* .main-content {
+  margin-bottom: 360px;
+} */
 
 .photo_container {
 	width: 100%;
@@ -115,13 +121,15 @@ frame-media {
 
 .background-image {
 	position: fixed;
+	overflow: hidden;
 	/* transform: ; - поставить что-то на задний фон! постановка в html и плюс трансформ */
 }
 
 .background-image img {
 	width: 100%;
-	height: auto;
+	height: 100%;
 	opacity: .7;
+	object-fit: cover;
 }
 
 .slider {
@@ -137,28 +145,13 @@ frame-media {
 
 .slide_content {
 	text-align: center;
+	position: relative;
 }
 
-.slide_content h3 {
-	font-weight: 800;
-	font-size: calc(var(--index) * 4);
-	text-transform: uppercase;
-	letter-spacing: calc(var(--index)*0.3);
-	margin-bottom: calc(var(--index) * 2.5);
-	position: relative;
-	color: rgb(254 95 47);
-	z-index: 3;
-}
-
-.slide_content h6 {
-	font-weight: 200;
-	font-size: calc(var(--index) * 2.5);
-	text-transform: uppercase;
-	letter-spacing: calc(var(--index)*0.3);
-	margin-bottom: calc(var(--index) * 2.5);
-	position: relative;
-	transform: translate(246.5%, -110%);
-	color: rgb(254 95 47);
+.slide_content > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 button::after {
@@ -178,35 +171,7 @@ button::after {
 	color: rgb(255 255 255 / .7);
 	letter-spacing: calc(var(--index)*.2);
 	margin-bottom: calc(var(--index) * 1.3);
-	transform: translate(0%, 130%);
 	z-index: 2;
-}
-
-
-.arrow {
-	width: 50px;
-	height: 50px;
-	transform: translate(170%, -166%);
-}
-
-.arrow img{
-	width: 159px;
-	height: auto;
-	filter: invert(46%) sepia(88%) saturate(2369%) hue-rotate(341deg) brightness(103%) contrast(103%);
-	cursor: pointer;
-}
-
-.arrow_photo {
-	width: 50px;
-	height: 50px;
-	transform: translate(70%, -166%);
-}
-
-.arrow_photo img{
-	width: 159px;
-	height: auto;
-	filter: invert(46%) sepia(88%) saturate(2369%) hue-rotate(341deg) brightness(103%) contrast(103%);
-	cursor: pointer;
 }
 
 button {
@@ -237,13 +202,29 @@ button {
 }
 
 .swiper-pagination {
-	padding: 5px;
-	box-shadow: 0 0 0 1px rgb(255 255 255 / .6);
+	gap: 8px;
+	width: auto !important;
+	background: transparent;
+	padding: 5px 12px;
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6);
 	border-radius: 10em;
 	box-sizing: border-box;
-	width: 1%;
-	margin-left: 0;
-	margin-bottom: -3%;
+	bottom: 30px;
+  	margin-left: 47.5%;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: #fff;
+  opacity: 0.7;
+  transform: scale(1.2);
 }
 
 .container {
@@ -256,22 +237,46 @@ button {
 }
 
 .bottom-line {
-	position:absolute;
+	position: fixed;
 	left:3%;
 	bottom:0;
-	margin-bottom: 12px;
+	/* margin-bottom: 12px; */
 	font-family : 'Proxima Nova', sans-serif;
 	font-weight: 200;
 	opacity: .7;
 }
 
-
 .top-line {
-	position: absolute;
-	width: 100%;
-	z-index: 10;
-	padding: 1.7rem 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    padding: 1.7em 0;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+	background: #000;
+	padding-top: 25px;
+	padding-bottom: 20px;
 }
+
+.top-line::after {
+    content: "";
+    position: absolute;
+	bottom: -65px;
+    left: 0;
+    right: 0;
+	opacity: 0.3;
+    height: 65px;
+    background: linear-gradient(
+        to bottom,
+        rgb(254 95 47) 0%,
+        rgba(0, 0, 0, 0) 60%
+    );
+    pointer-events: none;
+	z-index: -1;
+}
+
+
 .logo {
 	border-radius: 10em;
 	width: 54px;
@@ -293,7 +298,7 @@ button {
 	display: flex;
 	margin-top: 12px;
 	font-size: 19px;
-	transform: translate(70%, 0);
+	transform: translate(60%, 0);
 }
 
 .main-mnu li {
@@ -302,7 +307,7 @@ button {
 
 .main-mnu a {
 	color: #bbbec9;
-	padding: 16px;
+	padding: 15px;
 	font-family : 'Proxima Nova', sans-serif;
 	text-decoration: none;
 	font-weight: 200;
@@ -310,18 +315,6 @@ button {
 }
 .main-mnu a:hover {
 	text-decoration: underline;
-}
-
-.back_img {
-	position: fixed;
-	/* transform: translate(-80%, 12%); */
-	/* transform: ; - поставить что-то на задний фон! постановка в html и плюс трансформ */
-}
-
-.back_img img {
-	width: calc(var(--index) * 21);
-	height: auto;
-	filter: grayscale(100%);
 }
 
 .nickname {
@@ -340,3 +333,96 @@ button {
 	text-transform: uppercase;
 	letter-spacing: 1px;
 }
+
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.github {
+  filter: brightness(0) invert(1);
+}
+
+.linkedin {
+  filter: none;
+}
+
+
+.cv-link, 
+.cv-download {
+  align-items: center;
+  margin-left: 5px;
+  text-decoration: none;
+  color: #bbbec9;
+  font-family: 'Proxima Nova', sans-serif;
+  font-size: 19px;
+}
+
+.download-icon {
+  width: 18px;
+  height: 18px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.cv-link:hover,
+.cv-download:hover {
+  text-decoration: underline;
+}
+
+.about-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: 80vw;
+	font-family : 'Proxima Nova', sans-serif;
+	font-weight: 200;
+	opacity: .9;
+}
+
+.about-img img {
+	height: auto;
+    border-radius: 1em;
+	width: calc(var(--index) * 17);
+	filter: grayscale(100%);
+	transform:  translate(30%, 30%);
+}
+
+.about-text {
+    flex: 1;
+    color: #ddd;
+    font-family: 'Proxima Nova', sans-serif;
+    line-height: 1.6;
+	transform:  translate(30%, 10%);
+	padding: 5vh;
+}
+
+.about-text h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #ff784e;
+}
+
+.about-text h3 {
+    font-size: 20px;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    color: #ff784e;
+}
+
+.about-text ul {
+    list-style: disc;
+    margin-left: 2vw;
+    margin-bottom: 2vw;
+}
+
+

@@ -1,0 +1,134 @@
+.skills-orbit {
+  display: grid;
+  place-items: center;
+  margin: 40px auto;
+}
+
+.orbit-core {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: grid;
+  place-items: center;
+  
+}
+
+.orb {
+  position: absolute;
+  font-size: 32px;
+  color: rgba(255, 255, 255, 0.7);
+  filter: drop-shadow(0 4px 8px #0005);
+
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%; 
+  padding: 10px;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 6px 12px #0008);
+  animation: float 4s ease-in-out infinite;
+  
+}
+
+.orb:hover {
+  color: #ff5a2b;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #ff5a2b;
+  transform: scale(1.2);
+  position: absolute;
+  font-size: 50px;
+  color: white;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(0, -8px); }
+}
+
+.skills-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.title-row {
+  display: flex;
+  align-items: flex-end;
+  font-family : 'Proxima Nova', sans-serif;
+  text-transform: uppercase;
+}
+
+.title-row h3 {
+	font-weight: 800;
+	letter-spacing: calc(var(--index)*0.3);
+	color: rgb(254 95 47);
+  font-size: calc(var(--index) * 4);
+}
+
+.title-row h6 {
+	letter-spacing: calc(var(--index)*0.3);
+	color: rgb(254 95 47);
+  font-size: calc(var(--index) * 2.5);
+  font-weight: 200;
+}
+
+.title-row h5 {
+	letter-spacing: calc(var(--index)*.2);
+  font-size: calc(var(--index) * 0.8);
+  color: rgb(254 95 47);
+}
+
+.skills-sub {
+  transform: translateY(-25px);
+}
+
+.portfolio-sub {
+  transform: translateY(60px);
+}
+
+.arrow {
+	width: 20px;
+	height: 20px;
+}
+
+.arrow img{
+	width: 159px;
+	height: auto;
+	filter: invert(46%) sepia(88%) saturate(2369%) hue-rotate(341deg) brightness(103%) contrast(103%);
+	cursor: pointer;
+}
+.arrow-portfolio img {
+  border: 1px solid;
+  border-radius: 1em;
+  transform: translateY(-30px);
+}
+
+.arrow-works img{
+  border: 1px solid;
+  border-radius: 1em;
+  transform: translateY(-65px);
+}
+.works-sub {
+  padding-top: 52px;
+  transform: translateX(-13px); 
+}
+.values-sub{
+  transform: translateX(150px);
+}
+
+.maiia{
+  transform: translateX(125px);
+}
+
+.bubbles {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  padding: 10px;
+  z-index: 1;
+  transform: translate(-360px, 0px);
+}
+
+.bubbles .orb {
+  font-size: 28px;
+}

@@ -1,5 +1,4 @@
 {% extends 'app/layout.html' %}
-
 {% block title %}maiiagareeva{% endblock %}
 
 {% block main_body %}
@@ -7,58 +6,110 @@
 		<div class="swiper-wrapper">
 			<div class="swiper-slide slide">
 				<div class="slide_content">
-					<table>
-						<tr>
-							<td>
-								<h6>Maiia</h6>
-							<td>
-								<h3>Gareeva</h3>
-							</td>
-							<td>
-								<div class="arrow"><a href="{% url 'skills' %}"><img src="static/app/img/right-up.png" alt="Alt"></a></div>
-							</td>
-							<td>
-								<h5 style="font-weight: bold;font-size: calc(var(--index) * 0.5);text-transform: uppercase;color: rgb(255 255 255 / .7);letter-spacing: calc(var(--index)*.2);margin-bottom: calc(var(--index) * 1.3);transform: translate(-38%, 100%);color: rgb(254 95 47);">Portfolio</h5>
-							</td>
-						</tr>
-					</table>
-					<p>Data Scientist, Software Developer</p>
-					<form action="contact">
-						<button>Contact me</button>
-					</form>
+					<div class="title-row">
+						<div class="title-left">
+							<h6 class="maiia">Maiia</h6>
+							<h3>Gareeva</h3>
+						</div>
+						<div>
+							<h5 class="sub portfolio-sub">Portfolio</h5>
+						</div>
+						<div class="title-right">
+							<div class="arrow arrow-portfolio">
+								<a href="{% url 'skills' %}">
+									<img src="static/app/img/right-up.png" alt="Alt">
+								</a>
+							</div>
+						</div>
+					</div>
+					<p>Data Scientist, Software Developer, <br>Student BS<br></p>
+
+					<div class="social-icons">
+						<a href="https://github.com/maiiagareeva" target="_blank">
+						<img src="static/app/img/github_icon.svg" alt="GitHub" class="icon github">
+						</a>
+						<a href="https://www.linkedin.com/in/maiia-gareeva" target="_blank">
+						<img src="static/app/img/linkedin_icon.svg" alt="LinkedIn" class="icon linkedin">
+						</a>
+					</div>
 				</div>
 			</div>
 
 			<div class="swiper-slide slide">
 				<div class="slide_content">
-					<table>
-						<tr>
-							<td>
-								<h3>Photography</h3>
-							</td>
-							<td>
-								<div class="arrow_photo"><a href="{% url 'photo' %}"><img src="static/app/img/right-up.png" alt="Alt"></a></div>
-							</td>
-							<td>
-								<h5 style="font-weight: bold;font-size: calc(var(--index) * 0.5);text-transform: uppercase;color: rgb(255 255 255 / .7);letter-spacing: calc(var(--index)*.2);margin-bottom: calc(var(--index) * 1.3);transform: translate(-80%, 100%);color: rgb(254 95 47);">works</h5>
-							</td>
-						</tr>
-					</table>
+					<div class="title-row">
+						<div class="title-left">
+							<h3>Photography</h3>
+						</div>
+						<div class="sub works-sub">
+							<h5>works</h5>
+						</div>
+						<div class="title-right">
+							<div class="arrow arrow-works">
+							<a href="{% url 'photo' %}">
+								<img src="static/app/img/right-up.png" alt="Alt">
+							</a>
+							</div>
+						</div>
+					</div>
 					<p>hobby, passion, design</p>
-					<form action="contact">
-						<button>Contact me</button>
-					</form>
 				</div>
 			</div>
-
 			<div class="swiper-slide slide">
 				<div class="slide_content">
-					<h3>Values</h3>
-					{% comment %} <div class="values" data-title="&#9829;1)&#009;A&#013;&#010;2)&#009;B"><h3>Values</h3></div> {% endcomment %}
+					<div class="title-row skills-frame">
+						<div class="title-left">
+							<h3 class="sub skills-sub">Skills</h3>
+						</div>
+						<div class="title-right">
+						</div>
+					</div>
+					<div class="bubbles">
+						<div class="skills-orbit bubbles">
+							<div class="skills-wrapper">
+								<div class="orbit-core">
+
+									<i class="devicon-tensorflow-original colored orb" title="TensorFlow"></i> <!--2-->
+									<i class="devicon-pytorch-original colored orb" title="PyTorch"></i> <!--3-->
+									<i class="devicon-flutter-plain colored orb" title="Flutter"></i>
+									<i class="devicon-django-plain colored orb" title="Django"></i>
+
+									<i class="devicon-python-plain colored orb" title="Python"></i>
+									<i class="devicon-cplusplus-plain colored orb" title="C++"></i>
+									<i class="devicon-html5-plain colored orb" title="HTML"></i>
+									<i class="devicon-javascript-plain colored orb" title="JavaScript"></i>
+									<i class="devicon-dart-plain colored orb" title="Dart"></i>
+									<i class="devicon-java-plain colored orb" title="Java"></i>
+
+									<i class="devicon-jupyter-plain orb" title="Jupyter Notebook"></i>
+									<i class="devicon-google-plain orb" title="Google Colab"></i>
+
+									<i class="devicon-vscode-plain orb" title="VS Code"></i>
+									<i class="devicon-pycharm-plain orb" title="PyCharm"></i>
+									<i class="devicon-xcode-plain orb" title="Xcode"></i>
+									<i class="devicon-mysql-plain orb" title="MySQL Workbench"></i>
+									<i class="devicon-matlab-plain orb" title="MATLAB"></i>
+									<i class="devicon-postgresql-plain orb" title="pgAdmin"></i>
+
+									<i class="fa-solid fa-image orb" title="Photoshop"></i>
+									<i class="fa-solid fa-pen-nib orb" title="Illustrator"></i>
+									<i class="fa-solid fa-camera orb" title="Lightroom"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide slide">
+				<div class="slide_content">
+					<div class="title-row">
+						<div class="title-left">
+							<h3 class="sub values-sub">Values</h3>
+						</div>
+						<div class="title-right">
+						</div>
+					</div>
 					<p>rigor, determination, passion, community, growth</p>
-					<form action="contact">
-						<button>Contact me</button>
-					</form>
 				</div>
 			</div>
 		</div>

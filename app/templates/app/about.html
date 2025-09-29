@@ -1,9 +1,62 @@
 {% extends 'app/layout.html' %}
+{% load static %}
 
 {% block title %}about.maiiagareeva{% endblock %}
 
 {% block main_body %}
-	<div class="back_img">
-		<img src="static/app/img/back.jpg">
-	</div>
+	<section class="about">
+		<div class="about-container">
+			<div class="about-img">
+				<img src="{% static 'app/img/back.jpg' %}">
+			</div>
+			<div class="about-text">
+				<h2>About Me</h2>
+				<p>
+					I am a <strong>Data Scientist</strong> and a currently 
+					enrolled <strong>international student in the University of Minnesota</strong> 
+					passionate about solving complex problems at the intersection of 
+					<em>data analysis, machine learning, and web development</em>.  
+					My work focuses on transforming raw information into actionable insights 
+					and building tools that make technology more accessible.
+				</p>
+
+				<h3>Research & Professional Interests</h3>
+				<ul>
+					<li>Data Science & Machine Learning</li>
+					<li>Data Visualization</li>
+					<li>Software Development</li>
+					<li>Artificial Intelligence</li>
+					<li>Web Applications and Design</li>
+				</ul>
+
+				<h3>Extracurriculars</h3>
+				<p>
+					I' am a <em>photographer</em> and an art maker. I had experiences in nature, people portraits and plot art works.
+					I am also the creator of the BeeInBoots Broadcasts <em>Podcast</em> on Apple Podcasts.
+					Sport is the other part of me, I'm a proffesional <em>skiier</em>, experienced <em>hiker</em>, sailor, backpacker. 
+					Hiking and mountains are my spirit and great passion.
+				</p>
+
+				<p>
+					Outside of work, I am passionate about <em>photography</em> 
+					and creative projects that combine art and technology.
+				</p>
+				<h3>Background</h3>
+				<p>In 2024 I finished Top 5 Moscow High School in Russia. 
+					Throught that year I was accepted to 15 US universities and decoded to go to 
+					the <strong>of Minnesota Twin Cities</strong>. 
+					For the U of M I gained two scholarships to study in the USA.
+					All around the freshman year 2024-2025 I was chosen to work as a hiking guide 
+					in the Center of Outdoor Adventure, and also pursue my degree in the
+					Agriculture Robotics lab and further research project in Agriculture/Forestry.
+					</p>
+				<h3>Languages</h3>
+				<ul>
+					<li>Russian (native)</li>
+					<li>English (fluent)</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
 {% endblock %}

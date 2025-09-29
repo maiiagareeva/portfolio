@@ -44,3 +44,39 @@ window.onscroll = function() {
 }
 
 window.scrollTo(0, 1)
+
+const orbs = document.querySelectorAll('.orb');
+const orbitCore = document.querySelector('.orbit-core');
+const paddingX = 320;
+const paddingY = 160;
+
+const centerX = orbitCore.offsetWidth / 2;
+const centerY = orbitCore.offsetHeight / 2;
+
+const total = orbs.length;
+const perimeter = 2 * (2 * paddingX + 2 * paddingY);
+const step = (perimeter / total );
+
+let pos = 0;
+
+orbs.forEach((el, i) => {
+  let x, y;
+  if (pos < 2 * paddingX) {
+    x = centerX - paddingX + pos;
+    y = centerY - paddingY;
+  } else if (pos < 2 * paddingX + 2 * paddingY) {
+    x = centerX + paddingX;
+    y = centerY - paddingY + (pos - 2 * paddingX);
+  } else if (pos < 4 * paddingX + 2 * paddingY) {
+    x = centerX + paddingX - (pos - (2 * paddingX + 2 * paddingY));
+    y = centerY + paddingY;
+  } else {
+    x = centerX - paddingX;
+    y = centerY + paddingY - (pos - (4 * paddingX + 2 * paddingY));
+  }
+
+  el.style.left = `${x - el.offsetWidth / 2}px`;
+  el.style.top = `${y - el.offsetHeight / 2}px`;
+
+  pos += step;
+});
